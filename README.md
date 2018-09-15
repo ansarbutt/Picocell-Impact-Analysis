@@ -13,7 +13,7 @@ The picocells were deployed over a one week period starting July 11, 2016. So a 
 
 What we want to do is determine if there is a “lift”/increase in the total traffic in the area under study where the Picocells were deployed that can be attributed to addition of the Picocells.
 
-## Data provided  
+## Data Provided  
 Total_UL_DL_PICO_MACRO.xlsx
 -	DOWNLOAD & UPLOAD figures are usage from some sectors from macro sites YY1290, YY0104, YY1755 that point towards the picocells area
 -	DL_PICO & UL_PICO figures are usage from the picocells introduced in the area
@@ -21,3 +21,16 @@ Total_UL_DL_PICO_MACRO.xlsx
 
 other_cells_data_no_sector.xlsx
 -	data_ul & data_dl figures are usage from macros sites in the city (you need to exclude macro sites YY1290, YY0104, YY1755 if you are looking for sites that are not part of the picocell area)
+
+## Solution
+To determine the impact of the picocell installation the following methods were applied:
+
+### 1) Dynamic Time Warping   
+This technique is used to determine what macros from other sites most similarly resemble the impacted macros prior to the picocell installation. The macros chosen to be most similar will form our control group.  
+Reference: https://github.com/klarsen1/MarketMatching
+
+### 2) Causal Impact  
+This technique builds a Bayesian structural time-series model on the control group (i.e. the non-impacted group) with the impacted group as the response variable using only the pre-impact period for training. Using the model built from the control group, we try and predict the response variable in the post-impact period to determine what the response values would have been had there been no intervention.   
+Reference: https://google.github.io/CausalImpact/CausalImpact.html
+
+
