@@ -31,7 +31,7 @@ This technique is used to determine what macros from other sites most similarly 
 Reference: https://github.com/klarsen1/MarketMatching
 
 ### 2) Causal Impact  
-This technique builds a Bayesian structural time-series model on the control group (using only the pre-impact period for training) with the impacted group as the response variable. Using the model built from the control group, we try and predict the response variable in the post-impact period to determine what the response values would have been had there been no intervention.   
+This technique builds a Bayesian structural time-series model on the control group (using only the pre-impact period for training) with the impacted group as the response variable. Using the model built from the control group, we try and predict the response variable in the post-impact period to determine what the response values should be had there been no intervention.   
 
 Reference: https://google.github.io/CausalImpact/CausalImpact.html
 
